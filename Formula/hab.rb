@@ -8,7 +8,7 @@ class Hab < Formula
   homepage "https://habitat.sh"
   url "https://bintray.com/habitat/stable/download_file?file_path=darwin%2Fx86_64%2Fhab-#{current_version}-#{current_release}-x86_64-darwin.zip"
   version current_version
-  sha256 current_sha256
+  sha256 current_sha256.downcase
 
   def install
     bin.install "hab"
