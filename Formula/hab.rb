@@ -1,8 +1,8 @@
 class Hab < Formula
   # Update these values as needed as new versions are released
-  current_version="0.38.0"
-  current_release="20171026215116"
-  current_sha256="2ffcbf5520445ff0471b71657bb24005e11adb94644d6c4e5f953e68efb74df4"
+  current_version="0.39.0"
+  current_release="20171116224428"
+  current_sha256="2A81E7DA6F75CF0923924FFF11DC78ACF8F0C4ED389B41F6742622601F1293CB"
 
   desc "The Habitat command line application"
   homepage "https://habitat.sh"
