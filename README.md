@@ -1,6 +1,7 @@
 Habitat Homebrew Tap
 ====================
 
+
 For developers on MacOS, the [Habitat](https://habitat.sh) team
 maintains a [Homebrew](https://brew.sh) tap that makes it easy to
 install the `hab` command line client and keep up-to-date with the
