@@ -1,8 +1,8 @@
 class Hab < Formula
   # Update these values as needed as new versions are released
-  current_version="0.72.0"
-  current_release="20190103231741"
-  current_sha256="631dc8a83d1e003f3adc2e659f7b255976b8410729a2b07d0ec69df57d22ca8a"
+  current_version="0.73.0"
+  current_release="20190115004751"
+  current_sha256="3207e4369795f13b80088210ddfdb679be45351e1c70e5e872d0830c12fd6a76"
 
   # Installing "openssl" ensures there's a certificate chain at
   # `/usr/local/etc/openssl/cert.pem`, which our OpenSSL library needs
