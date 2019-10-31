@@ -6,7 +6,7 @@ github:
   delete_branch_on_merge: true
 
 subscriptions:
-  - workload: project_promoted:{{agent_id}}:stable:*
+  - workload: habitat-sh/habitat:master_completed:project_promoted:habitat-sh/habitat:master:current:*
     actions:
       - bash:.expeditor/scripts/bump_version.sh
 

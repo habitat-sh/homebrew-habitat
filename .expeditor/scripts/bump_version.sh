@@ -5,13 +5,7 @@
 
 set -euo pipefail
 
-if ! sed --version 2>&1 | grep -q "GNU sed"; then
-    echo "This script requires GNU sed; aborting"
-    exit 1
-fi
-
-environment_name="${1:-stable}"
-s3_prefix="http://${s3_bucket_name}.s3.amazonaws.com/${environment_name}/latest/habitat/"
+url_prefix="http://packages.chef.io/files/stable/habitat/latest/"
 
 ensure_files_changed() {
     # git diff --exit-code returns 0 if there are no changes
@@ -23,43 +17,26 @@ ensure_files_changed() {
 
 # Retrieves the current package manifest for the given environment.
 #
-# After GPG verifying the file, returns the JSON on standard output,
-# suitable for piping into `jq`.
-#
 # e.g. manifest_for_environment acceptance | jq
-manifest_for_environment() {
+get_manifest() {
     curl --silent \
          --remote-name \
-         "${s3_prefix}/manifest.json"
-    curl --silent \
-         --remote-name \
-         "${s3_prefix}/manifest.json.asc"
-    gpg_verify "manifest.json"
+         "${url_prefix}/manifest.json"
     cat "manifest.json"
 }
 
 # Using the first element of the array is safe because we only ever build one darwin artifact
-ident="$(manifest_for_environment "stable" | jq -r '.packages | ."x86_64-darwin" | .[0]')"
-
-version="$(cut -d'/' -f3 <<< "$ident")"
-release="$(cut -d'/' -f4 <<< "$ident")"
-sha256="$(curl "${s3_prefix}/hab-${version}-${release}-x86_64-darwin.zip.sha256sum" | cut -d' ' -f1)"
+version="$(get_manifest | jq -r '.version')"
+sha256="$(curl "${url_prefix}/hab-x86_64-darwin.zip.sha256sum" | cut -d' ' -f1)"
 
 
-branch="ci/brew-update-$new_version-$(date +"%Y%m%d%H%M%S")"
+branch="ci/brew-update-$version-$(date +"%Y%m%d%H%M%S")"
 git checkout -b "$branch"
 
 echo "--- Modifying hab Homebrew Formula"
 sed --in-place \
     --regexp-extended \
     's/current_version="(.*)"/current_version="'"${version}"'"/g' \
-    Formula/hab.rb
-ensure_files_changed
-git add Formula/hab.rb
-
-sed --in-place \
-    --regexp-extended \
-    's/current_release="(.*)"/current_release="'"${release}"'"/g' \
     Formula/hab.rb
 ensure_files_changed
 git add Formula/hab.rb
