@@ -1,0 +1,7 @@
+---
+project:
+  alias: homebrew-habitat
+
+github:
+  delete_branch_on_merge: true
+
