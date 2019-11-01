@@ -14,7 +14,11 @@ class Hab < Formula
 
   desc "The Habitat command line application"
   homepage "https://habitat.sh"
-  url "https://packages.chef.io/files/stable/habitat/latest/hab-x86_64-darwin.zip"
+  url = if current_version == "0.88.0"
+    "https://bintray.com/habitat/stable/download_file?file_path=darwin%2Fx86_64%2Fhab-0.88.0-20191009205151-x86_64-darwin.zip"
+  else
+    "https://packages.chef.io/files/habitat/#{version}/hab-x86_64-darwin.zip"
+  end
   version current_version
   sha256 current_sha256.downcase
 

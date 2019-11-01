@@ -25,10 +25,8 @@ get_manifest() {
     cat "manifest.json"
 }
 
-# Using the first element of the array is safe because we only ever build one darwin artifact
 version="$(get_manifest | jq -r '.version')"
 sha256="$(curl "${url_prefix}/hab-x86_64-darwin.zip.sha256sum" | cut -d' ' -f1)"
-
 
 branch="ci/brew-update-$version-$(date +"%Y%m%d%H%M%S")"
 git checkout -b "$branch"
@@ -51,7 +49,7 @@ git add Formula/hab.rb
 echo "--- :github: Committing updates to Github"
 # Display what changed
 git diff --staged
-git commit --signoff --message "Bump version to ${new_version}"
+git commit --signoff --message "Bump version to ${version}"
 
 # https://expeditor.chef.io/docs/reference/script/#open-pull-request
 open_pull_request
