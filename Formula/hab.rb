@@ -5,7 +5,7 @@ class Hab < Formula
   source_url = if current_version == "0.88.0"
     "https://bintray.com/habitat/stable/download_file?file_path=darwin%2Fx86_64%2Fhab-0.88.0-20191009205151-x86_64-darwin.zip"
   else
-    "https://packages.chef.io/files/habitat/#{version}/hab-x86_64-darwin.zip"
+    "https://packages.chef.io/files/habitat/#{current_version}/hab-x86_64-darwin.zip"
   end
 
   # Installing "openssl" ensures there's a certificate chain at
