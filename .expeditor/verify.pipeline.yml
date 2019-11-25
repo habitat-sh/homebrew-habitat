@@ -2,7 +2,7 @@ steps:
 
   - label: "Install Habitat from Tap"
     command:
-      - echo "Seems legit!"
+      - .expeditor/scripts/verify/install_from_tap.sh
     expeditor:
       executor:
         macos:
