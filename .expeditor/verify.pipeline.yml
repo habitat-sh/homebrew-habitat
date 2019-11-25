@@ -1,0 +1,10 @@
+steps:
+
+  - label: "Install Habitat from Tap"
+    command:
+      - echo "Seems legit!"
+    expeditor:
+      executor:
+        macos:
+          os-version: "10.13"
+          inherit-environment-vars: true
