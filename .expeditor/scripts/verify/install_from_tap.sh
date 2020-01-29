@@ -25,9 +25,6 @@ echo "--- Tap and set testing branch"
 # clones, but we want everything so we can switch to a new branch.
 brew tap --full habitat-sh/habitat
 
-# Clean up any old stuff
-brew cleanup
-
 # Checkout the new branch.
 cd $(brew --repository)/Library/Taps/habitat-sh/homebrew-habitat
 git checkout "${BUILDKITE_BRANCH}"
@@ -39,6 +36,13 @@ echo "--- Installing hab from ${BUILDKITE_BRANCH}"
 # (Also, for future reference, you have to be on a branch, not a
 # detached HEAD, in order for this to work.)
 export HOMEBREW_DEVELOPER=1
+
+# For now, prevent automatic cleanup, as this has sometimes caused
+# permissions-related issues in the past. This may be due to
+# pipeline-specific reasons, and should not be relevant for the
+# purposes of this particular test.
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+
 brew install hab
 
 echo "--- Verify we installed the expected binary"
