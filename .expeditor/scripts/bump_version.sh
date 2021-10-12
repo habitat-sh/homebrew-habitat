@@ -54,6 +54,6 @@ git commit --signoff --message "Bump version to ${version}"
 # https://expeditor.chef.io/docs/reference/script/#open-pull-request
 open_pull_request
 
-git checkout master
+git checkout main
 git branch -D "$branch"
 

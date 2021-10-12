@@ -31,7 +31,7 @@ git checkout "${BUILDKITE_BRANCH}"
 
 echo "--- Installing hab from ${BUILDKITE_BRANCH}"
 # Without setting HOMEBREW_DEVELOPER, `brew install` will
-# automatically re-check-out the master branch of the tap!
+# automatically re-check-out the main branch of the tap!
 #
 # (Also, for future reference, you have to be on a branch, not a
 # detached HEAD, in order for this to work.)
