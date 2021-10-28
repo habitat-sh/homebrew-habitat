@@ -21,9 +21,7 @@ rm -f /usr/local/bin/hab
 brew untap habitat-sh/habitat || true
 
 echo "--- Tap and set testing branch"
-# Do a full install of the tap. By default, Homebrew only uses shallow
-# clones, but we want everything so we can switch to a new branch.
-brew tap --full habitat-sh/habitat
+brew tap habitat-sh/habitat
 
 # Checkout the new branch.
 cd $(brew --repository)/Library/Taps/habitat-sh/homebrew-habitat
