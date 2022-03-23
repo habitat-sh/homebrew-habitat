@@ -19,8 +19,7 @@ ensure_files_changed() {
 #
 # e.g. manifest_for_environment acceptance | jq
 get_manifest() {
-    curl --silent \
-         --remote-name \
+    curl --remote-name \
          "${url_prefix}/manifest.json"
     cat "manifest.json"
 }
