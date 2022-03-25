@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-url_prefix="http://packages.chef.io/files/stable/habitat/latest/"
+url_prefix="https://packages.chef.io/files/stable/habitat/latest/"
 
 ensure_files_changed() {
     # git diff --exit-code returns 0 if there are no changes
