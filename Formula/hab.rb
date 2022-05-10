@@ -1,7 +1,7 @@
 class Hab < Formula
   # Update these values as needed as new versions are released
-  current_version="1.6.477"
-  current_sha256="111251b15d7d3509008f953dd2a655491f645d7bebca7065db1b0c8755db57da"
+  current_version="1.6.500"
+  current_sha256="99b3087a54945e0551f0c743a9a752ccd439d8e90e731a10ba27c37f95b13d62"
   source_url = if current_version == "0.88.0"
     "https://bintray.com/habitat/stable/download_file?file_path=darwin%2Fx86_64%2Fhab-0.88.0-20191009205151-x86_64-darwin.zip"
   else
