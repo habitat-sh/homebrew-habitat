@@ -41,7 +41,7 @@ git checkout -b "$branch"
 echo "--- Modifying hab Homebrew Formula"
 sed --in-place \
     --regexp-extended \
-    's/current_version(\s+=\s+)".*"/current_version\1"'"${version}"'"/g' \
+    's/current_version(\s*=\s*)".*"/current_version\1"'"${version}"'"/g' \
     Formula/hab.rb
 ensure_files_changed
 git add Formula/hab.rb
