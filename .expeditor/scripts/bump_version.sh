@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # This script automates the modification of our Homebrew tap for the
 # `hab` binary.
@@ -48,11 +48,11 @@ git add Formula/hab.rb
 
 sed --in-place \
     --regexp-extended \
-    's/current_darwin_intel_sha256="(.*)"/current_darwin_intel_sha256="'"${darwin_intel_sha256}"'"/g' \
+    's/current_darwin_intel_sha256(\s*=\s*)".*"/current_darwin_intel_sha256\1"'"${darwin_intel_sha256}"'"/g' \
     Formula/hab.rb
 sed --in-place \
     --regexp-extended \
-    's/current_darwin_arm_sha256="(.*)"/current_darwin_arm_sha256="'"${darwin_arm_sha256}"'"/g' \
+    's/current_darwin_arm_sha256(\s*=\s*)".*"/current_darwin_arm_sha256\1"'"${darwin_arm_sha256}"'"/g' \
     Formula/hab.rb
 ensure_files_changed
 git add Formula/hab.rb
