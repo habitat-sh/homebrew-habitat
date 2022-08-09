@@ -41,18 +41,18 @@ git checkout -b "$branch"
 echo "--- Modifying hab Homebrew Formula"
 sed --in-place \
     --regexp-extended \
-    's/current_version(\s*=\s*)".*"/current_version\1"'"${version}"'"/g' \
+    's/(current_version\s*=\s*)".*"/\1"'"${version}"'"/g' \
     Formula/hab.rb
 ensure_files_changed
 git add Formula/hab.rb
 
 sed --in-place \
     --regexp-extended \
-    's/current_darwin_intel_sha256(\s*=\s*)".*"/current_darwin_intel_sha256\1"'"${darwin_intel_sha256}"'"/g' \
+    's/(current_darwin_intel_sha256\s*=\s*)".*"/\1"'"${darwin_intel_sha256}"'"/g' \
     Formula/hab.rb
 sed --in-place \
     --regexp-extended \
-    's/current_darwin_arm_sha256(\s*=\s*)".*"/current_darwin_arm_sha256\1"'"${darwin_arm_sha256}"'"/g' \
+    's/(current_darwin_arm_sha256\s*=\s*)".*"/\1"'"${darwin_arm_sha256}"'"/g' \
     Formula/hab.rb
 ensure_files_changed
 git add Formula/hab.rb
