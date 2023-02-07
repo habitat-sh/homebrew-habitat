@@ -1,8 +1,8 @@
 class Hab < Formula
   # Update these values as needed as new versions are released
-  current_version = "1.6.607"
-  current_darwin_intel_sha256 = "9bcf45c2e964a449c945fecaa8cc4cb022f41073878791e3e050febb4928cedf"
-  current_darwin_arm_sha256 = "f698141b8ed885e7910477e546eba44cfb513c02ca1fb9e778b9bf57e9da708a"
+  current_version = "1.6.652"
+  current_darwin_intel_sha256 = "df5c02dc4fc4a328d81fe7c031a50d13b6c25b1cdd06a51b1713e089378ec7a9"
+  current_darwin_arm_sha256 = "938d333237f600c75ad4ead24777cb1457b9d89288156aba1a56327c8f2be955"
 
   on_macos do
     @source_os = "darwin"
