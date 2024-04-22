@@ -6,5 +6,5 @@ steps:
     expeditor:
       executor:
         macos:
-          os-version: "10.15"
+          os-version: "11"
           inherit-environment-vars: true
