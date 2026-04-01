@@ -31,3 +31,7 @@ If you no longer wish to use the Habitat tab, you can uninstall it:
 ```sh
 brew untap habitat-sh/habitat
 ```
+
+# Copyright
+
+See [COPYRIGHT.md](./COPYRIGHT.md).
