@@ -56,6 +56,11 @@ if [[ "${actual_version}" != "${expected_version}" ]]; then
     exit 1
 fi
 
+if [[ ! -f "/usr/local/Cellar/hab/${expected_version}/share/NOTICES.txt" ]]; then
+    echo "Expected to install NOTICES.txt in homebrew share folder, but none was found!"
+    exit 1
+fi
+
 echo "--- Exercise the installed binary"
 
 # Try to do something against Builder (exercise the SSL)

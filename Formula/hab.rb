@@ -31,6 +31,7 @@ class Hab < Formula
 
   def install
     bin.install "hab"
+    share.install "NOTICES.txt" if File.exist?("NOTICES.txt")
   end
 
   test do
